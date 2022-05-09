@@ -18,6 +18,7 @@ function install_prerequisites()
 	sudo apt-get install python3-dev
 	sudo apt-get install python3-dbg
 	sudo apt-get install libavahi-glib-dev
+	sudo apt-get install doxygen
 }
 
 function install_hackrf_prerequisites() 
