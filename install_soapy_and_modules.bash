@@ -45,7 +45,7 @@ function build_liqued_dsp()
 	if [ ! -f "/usr/local/lib/libliquid.so" ]; then
 		./bootstrap.sh
 		./configure --enable-fftoverride 
-		make
+		make $MAKEOPTS
 		sudo make install
 		sudo ldconfig
 	fi
@@ -72,7 +72,7 @@ function build_wxwidgets() {
 	mkdir -p "$BUILD_DIR/wxWidgets-staticlib"
 	./autogen.sh 
 	./configure --with-opengl --disable-shared --enable-monolithic --with-libjpeg --with-libtiff --with-libpng --with-zlib --disable-sdltest --enable-unicode --enable-display --enable-propgrid --disable-webkit --disable-webview --disable-webviewwebkit --with-gtk=3 --prefix="$BUILD_DIR/wxWidgets-staticlib" CXXFLAGS="-std=c++0x" --with-libiconv=/usr
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ..
 }
@@ -113,7 +113,7 @@ function build_soapy_sdr()
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	sudo ldconfig
 	cd ..
@@ -133,7 +133,7 @@ function build_soapy_sdr_play() {
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ..
 	cd ..
@@ -152,7 +152,7 @@ function build_soapy_hackrf() {
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ..
 	cd ..
@@ -172,7 +172,7 @@ function build_soapy_remote() {
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ..
 	cd ..
@@ -190,7 +190,7 @@ function build_cubic_sdr() {
 	mkdir -p build
 	cd build
 	cmake ../ -DCMAKE_BUILD_TYPE=Release -DwxWidgets_CONFIG_EXECUTABLE="$BUILD_DIR/wxWidgets-staticlib/bin/wx-config" -DOpenGL_GL_PREFERENCE="LEGACY"
-	make
+	make $MAKEOPTS
 	sudo make install
 	sudo ldconfig
 	cd ..

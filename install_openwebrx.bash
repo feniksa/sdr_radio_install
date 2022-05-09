@@ -24,7 +24,7 @@ function install_cdr()
 	cd csdr
 	autoreconf -i
 	./configure
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ..
 	sudo ldconfig
@@ -52,7 +52,7 @@ function install_owrx_connector()
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ../..
 	sudo ldconfig
@@ -70,7 +70,7 @@ function install_digital_voice()
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ../..
 	sudo ldconfig
@@ -93,7 +93,7 @@ function install_digiham()
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ../..
 }
@@ -110,7 +110,7 @@ function install_codec2()
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	# manually install freedv_rx since it's not part of the default install package
 	sudo install -m 0755 src/freedv_rx /usr/local/bin
@@ -128,7 +128,7 @@ function install_m17_cxx_daemod()
 	mkdir -p build
 	cd build
 	cmake -DCMAKE_BUILD_TYPE=release ..
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ../..
 }
@@ -146,7 +146,7 @@ function install_drm()
 	[[ ! -d "$BUILD_DIR/dream" ]] && tar xvfz dream-2.1.1-svn808.tar.gz
 	cd dream
 	qmake CONFIG+=console
-	make
+	make $MAKEOPTS
 	sudo make install
 	cd ..
 }
