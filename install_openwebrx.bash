@@ -116,7 +116,7 @@ function install_codec2()
 	sudo ldconfig
 }
 
-function install_m17-cxx-demod()
+function install_m17_cxx_daemod()
 {
 	echo "m17-cxx-demod"
 	sudo apt-get install libboost-program-options-dev
@@ -225,7 +225,7 @@ install_digital_voice
 setup_codecserver_users
 install_digiham
 install_codec2
-install_m17
+install_m17_cxx_daemod
 install_drm
 install_direwolf
 install_sox
