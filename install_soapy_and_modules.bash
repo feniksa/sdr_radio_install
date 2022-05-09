@@ -13,14 +13,14 @@ function install_prerequisites()
 {
 	echo "Install prerequisites"
 
-	sudo apt-get install git build-essential automake cmake g++ swig
-	sudo apt-get install libgtk2.0-dev libpulse-dev python-numpy
-	sudo apt-get install mesa-utils 
-	sudo apt-get install freeglut3-dev freeglut3 gtk+-3.0
-	sudo apt-get install python3-dev
-	sudo apt-get install python3-dbg
-	sudo apt-get install libavahi-glib-dev
-	sudo apt-get install doxygen
+	sudo apt-get -y install git build-essential automake cmake g++ swig
+	sudo apt-get -y install libgtk2.0-dev libpulse-dev python-numpy
+	sudo apt-get -y install mesa-utils 
+	sudo apt-get -y install freeglut3-dev freeglut3 gtk+-3.0
+	sudo apt-get -y install python3-dev
+	sudo apt-get -y install python3-dbg
+	sudo apt-get -y install libavahi-glib-dev
+	sudo apt-get -y install doxygen
 }
 
 function install_hackrf_prerequisites() 
@@ -29,7 +29,7 @@ function install_hackrf_prerequisites()
 		sudo add-apt-repository -y ppa:myriadrf/drivers
 		sudo apt-get update
 	fi
-	sudo apt-get install hackrf libhackrf-dev
+	sudo apt-get -y install hackrf libhackrf-dev
 }
 
 function build_liqued_dsp() 

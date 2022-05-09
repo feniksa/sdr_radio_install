@@ -10,8 +10,8 @@ export MAKEOPTS="-j `nproc --all`"
 
 function install_prerequisites()
 {
-	sudo apt-get install git build-essential cmake python3 python3-setuptools 
-	sudo apt-get install rtl-sdr netcat libsndfile-dev librtlsdr-dev automake autoconf libtool pkg-config fftw3-dev
+	sudo apt-get -y install git build-essential cmake python3 python3-setuptools 
+	sudo apt-get -y install rtl-sdr netcat libsndfile-dev librtlsdr-dev automake autoconf libtool pkg-config fftw3-dev
 }
 
 function install_cdr() 
@@ -62,7 +62,7 @@ function install_digital_voice()
 {
 	echo "Install codecserver (for digital voice)"
 
-	sudo apt-get install sox libprotobuf-dev protobuf-compiler
+	sudo apt-get -y install sox libprotobuf-dev protobuf-compiler
 
 	cd "$BUILD_DIR"
 	[[ ! -d codecserver ]] && git clone --depth=1 -b master https://github.com/jketterl/codecserver.git
@@ -121,7 +121,7 @@ function install_codec2()
 function install_m17_cxx_daemod()
 {
 	echo "m17-cxx-demod"
-	sudo apt-get install libboost-program-options-dev
+	sudo apt-get -y install libboost-program-options-dev
 	cd "$BUILD_DIR"
 	[[ ! -d m17-cxx-demod ]] && git clone --depth=1 https://github.com/mobilinkd/m17-cxx-demod.git
 	cd m17-cxx-demod
@@ -138,7 +138,7 @@ function install_drm()
 {
 	echo "Install optional dependencies for DRM"
 
-	sudo apt-get install qt5-default libpulse0 libfaad2 libopus0 libpulse-dev libfaad-dev libopus-dev libfftw3-dev wget
+	sudo apt-get -y install qt5-default libpulse0 libfaad2 libopus0 libpulse-dev libfaad-dev libopus-dev libfftw3-dev wget
 
 	cd "$BUILD_DIR"
 	[[ ! -f $BUILD_DIR/dream-2.1.1-svn808.tar.gz ]] && wget https://downloads.sourceforge.net/project/drm/dream/2.1.1/dream-2.1.1-svn808.tar.gz
@@ -154,13 +154,13 @@ function install_drm()
 function install_direwolf()
 {
 	echo "Install optional packages for Packet / APRS"
-	sudo apt-get install direwolf
+	sudo apt-get -y install direwolf
 }
 
 function install_sox()
 {
 	echo "Install sox"
-	sudo apt-get install sox
+	sudo apt-get -y install sox
 }
 
 
