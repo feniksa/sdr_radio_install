@@ -6,6 +6,8 @@ SCRIPT_PATH=`realpath "$0"`
 SCRIPT_DIR=`dirname "$SCRIPT_PATH"`
 BUILD_DIR="$SCRIPT_DIR/build"
 
+export MAKEOPTS="-j `nproc --all`"
+
 function install_prerequisites()
 {
 	sudo apt-get install git build-essential cmake python3 python3-setuptools 
