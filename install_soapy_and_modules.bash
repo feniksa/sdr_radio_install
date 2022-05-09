@@ -36,7 +36,7 @@ function build_liqued_dsp()
 	fi
 
 	cd liquid-dsp
-	if [ ! -f /usr/local/lib/libliquid.so]; then
+	if [ ! -f "/usr/local/lib/libliquid.so" ]; then
 		./bootstrap.sh
 		./configure --enable-fftoverride 
 		make
