@@ -15,6 +15,9 @@ function install_prerequisites()
 	sudo apt-get install libgtk2.0-dev libpulse-dev python-numpy
 	sudo apt-get install mesa-utils 
 	sudo apt-get install freeglut3-dev freeglut3 gtk+-3.0
+	sudo apt-get install python3-dev
+	sudo apt-get install python3-dbg
+	sudo apt-get install libavahi-glib-dev
 }
 
 function install_hackrf_prerequisites() 
