@@ -170,7 +170,7 @@ function setup_openwebrx()
 	sudo mkdir -p /var/lib/openwebrx
 
 	echo "Craete openwebrx user"
-	sudo bash -c "id -u openwebrx || useradd -m openwebrx "
+	sudo bash -c "id -u openwebrx || useradd -m openwebrx -G plugdev -m"
 
 	echo "Change /var/lib/openwebrx owner to openwebrx:openwebrx"
 	sudo chown openwebrx:openwebrx /var/lib/openwebrx
