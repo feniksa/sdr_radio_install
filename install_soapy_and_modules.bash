@@ -96,7 +96,9 @@ WantedBy=multi-user.target
 " > /tmp/sdrplay.service 
 	sudo mv /tmp/sdrplay.service /etc/systemd/system/sdrplay.service
 	sudo chown root:root /etc/systemd/system/sdrplay.service
-	sudo chmod ug+x /etc/systemd/system/sdrplay.service
+	sudo chmod ug+r /etc/systemd/system/sdrplay.service
+	sudo systemctl daemon-reload
+	sudo systemctl enable sdrplay
 }
 
 function build_soapy_sdr() 

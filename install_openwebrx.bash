@@ -216,6 +216,7 @@ Restart=always
 WantedBy=multi-user.target' > /etc/systemd/system/openwebrx.service"
 
 	sudo systemctl daemon-reload
+	sudo systemctl enable openwebrx
 }
 
 # ------------------------------------------------------------------------
