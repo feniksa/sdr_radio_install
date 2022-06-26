@@ -31,6 +31,20 @@ function install_cdr()
 	sudo ldconfig
 }
 
+function install_pycdr()
+{
+
+	echo "Install csdr"
+
+	cd "$BUILD_DIR"
+
+	[[ ! -d pycsdr ]] && git clone https://github.com/jketterl/pycsdr.git
+	cd pycsdr
+	sudo ./setup.py install install_headers
+
+	cd ..
+}
+
 function install_js8py()
 {
 	echo "Install js8py library from source"
@@ -223,6 +237,7 @@ WantedBy=multi-user.target' > /etc/systemd/system/openwebrx.service"
 # ------------------------------------------------------------------------
 install_prerequisites
 install_cdr
+install_pycdr
 install_js8py
 install_owrx_connector
 install_digital_voice
