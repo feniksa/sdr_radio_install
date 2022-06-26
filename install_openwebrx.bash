@@ -22,9 +22,10 @@ function install_cdr()
 
 	[[ ! -d csdr ]] && git clone --depth=1 -b master https://github.com/jketterl/csdr.git
 	cd csdr
-	autoreconf -i
-	./configure
-	make $MAKEOPTS
+	mkdir -p build
+	cd build
+	cmake -DCMAKE_BUILD_TYPE=release ..
+	make
 	sudo make install
 	cd ..
 	sudo ldconfig
