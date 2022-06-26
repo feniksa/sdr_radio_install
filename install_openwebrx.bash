@@ -11,7 +11,7 @@ export MAKEOPTS="-j `nproc --all`"
 function install_prerequisites()
 {
 	sudo apt-get -y install git build-essential cmake python3 python3-setuptools 
-	sudo apt-get -y install rtl-sdr netcat libsndfile-dev librtlsdr-dev automake autoconf libtool pkg-config fftw3-dev
+	sudo apt-get -y install rtl-sdr netcat libsndfile-dev librtlsdr-dev automake autoconf libtool pkg-config fftw3-dev libsamplerate0-dev
 }
 
 function install_cdr() 
