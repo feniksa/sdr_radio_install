@@ -182,6 +182,12 @@ function install_sox()
 function setup_openwebrx()
 {
 	echo "Prepare data storage"
+
+	if [[ -d "/var/lib/openwebrx" ]]; then
+		echo "/var/lib/openwebrx directory exists. Do nothing to prevent data loss"
+		return 0
+	fi
+
 	sudo mkdir -p /var/lib/openwebrx
 
 	echo "Craete openwebrx user"
@@ -198,8 +204,13 @@ function setup_openwebrx()
 
 	echo "users.json 0600"
 	sudo chmod 0600 /var/lib/openwebrx/users.json
-}
 
+	echo "Create admin user for  openwebrx"
+	cd openwebrx
+	sudo ./openwebrx.py admin adduser admin
+	#./openwebrx.py
+
+}
 
 function install_openwebrx()
 {
@@ -209,14 +220,15 @@ function install_openwebrx()
 	[[ ! -d openwebrx ]] && git clone --depth=1 -b master https://github.com/jketterl/openwebrx.git
 }
 
-function post_setup_openwebrx()
-{
-	echo "Create admin user for  openwebrx"
-	cd openwebrx
-	sudo ./openwebrx.py admin adduser admin
-	#./openwebrx.py
-
+function create_service_openwebrx()
+{	
 	echo "Create openwebrx service file"
+
+	if [[ -f "/etc/systemd/system/openwebrx.service" ]]; then
+		echo "/etc/systemd/system/openwebrx.service file found, do nothing"
+		return 0
+	fi
+
 	sudo bash -c "echo '[Unit]
 Description=OpenWebRX WebSDR receiver
 
@@ -248,7 +260,6 @@ install_m17_cxx_daemod
 install_drm
 install_direwolf
 install_sox
-setup_openwebrx
 install_openwebrx
-post_setup_openwebrx
-
+setup_openwebrx
+create_service_openwebrx
