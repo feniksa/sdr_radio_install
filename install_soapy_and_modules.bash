@@ -14,7 +14,7 @@ function install_prerequisites()
 	echo "Install prerequisites"
 
 	sudo apt-get -y install git build-essential automake cmake g++ swig
-	sudo apt-get -y install libgtk2.0-dev libpulse-dev python-numpy
+	sudo apt-get -y install libgtk2.0-dev libpulse-dev python3-numpy
 	sudo apt-get -y install mesa-utils 
 	sudo apt-get -y install freeglut3-dev freeglut3 gtk+-3.0
 	sudo apt-get -y install python3-dev
