@@ -25,10 +25,6 @@ function install_prerequisites()
 
 function install_hackrf_prerequisites() 
 {
-	if [[ ! -f /etc/apt/sources.list.d/myriadrf-ubuntu-drivers-focal.list ]]; then
-		sudo add-apt-repository -y ppa:myriadrf/drivers
-		sudo apt-get update
-	fi
 	sudo apt-get -y install hackrf libhackrf-dev
 }
 
